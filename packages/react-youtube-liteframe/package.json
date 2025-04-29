@@ -21,6 +21,10 @@
     "name": "Bhavesh Rawat",
     "url": "https://bhaveshrawat.dev"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhaveshxrawat/react-youtube-liteframe"
+  },
   "license": "MIT",
   "packageManager": "pnpm@10.9.0",
   "devDependencies": {

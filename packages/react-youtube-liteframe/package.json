@@ -6,7 +6,8 @@
   "type": "module",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "pnpm dlx rollup -c"
+    "build": "pnpm dlx rollup -c",
+    "dev": "pnpm dlx rollup -c -w"
   },
   "keywords": [
     "react youtube",

@@ -30,6 +30,14 @@ export interface YoutubeProps {
   videoID: string;
 
   /**
+   * The YouTube video title.
+   *
+   *
+   *
+   */
+  videoTitle?: string;
+
+  /**
    * Whether to show a "Watch on YouTube" impression text.
    *
    * @default true
@@ -73,6 +81,7 @@ export interface YoutubeProps {
 function Youtube(props: YoutubeProps) {
   const {
     videoID,
+    videoTitle,
     ytImpression = true,
     imageLoading = "lazy",
     noCookie = false,
@@ -88,11 +97,23 @@ function Youtube(props: YoutubeProps) {
   return (
     <div
       role="presentation"
-      aria-label="YouTube video player"
+      title={videoTitle ?? "Youtube video player"}
       className="r-yt-lf"
+      aria-labelledby="yt-title"
     >
       {!showIFrame && (
         <div className="yt-mock">
+          {videoTitle && (
+            <h3 id="yt-title">
+              <a
+                href={`https://www.youtube.com/watch?v=${videoID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {videoTitle}
+              </a>
+            </h3>
+          )}
           <picture>
             <source
               type="image/webp"
@@ -116,7 +137,7 @@ function Youtube(props: YoutubeProps) {
             />
             <img
               src={`https://i.ytimg.com/vi/${videoID}/hqdefault.jpg`}
-              alt="YouTube video thumbnail"
+              alt={`${videoTitle || "YouTube video"} thumbnail`}
               loading={imageLoading}
               width="480"
               height="360"
@@ -124,7 +145,9 @@ function Youtube(props: YoutubeProps) {
           </picture>
           <button
             type="button"
-            aria-label="Play Youtube Video"
+            aria-label={
+              videoTitle ? `Watch ${videoTitle}` : "Watch Youtube Video"
+            }
             className="yt-playbtn"
             onClick={() => setShowIFrame(true)}
           >
@@ -143,6 +166,7 @@ function Youtube(props: YoutubeProps) {
                 href={`https://www.youtube.com/watch?v=${videoID}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Youtube"
               >
                 <svg
                   height="100%"
@@ -166,7 +190,7 @@ function Youtube(props: YoutubeProps) {
           width="560"
           height="315"
           src={iframeSrc}
-          title="YouTube video player"
+          title={videoTitle}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

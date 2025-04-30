@@ -49,6 +49,7 @@ export default App;
 | Prop           | Type      | Default      | Description                                              |
 | :------------- | :-------- | :----------- | :------------------------------------------------------- |
 | `videoID`      | `string`  | **required** | The YouTube video ID to embed.                           |
+| `videoTitle`   | `string`  | null         | The YouTube video title.                                 |
 | `ytImpression` | `boolean` | `true`       | Show "Watch on YouTube" overlay text.                    |
 | `preconnect`   | `boolean` | `false`      | Preconnect to YouTube domains for faster iframe loading. |
 | `nocookie`     | `boolean` | `false`      | Use `youtube-nocookie.com` to improve privacy.           |

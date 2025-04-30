@@ -46,12 +46,14 @@ export default App;
 
 ## 🔖 Props
 
-| Prop           | Type      | Default      | Description                                              |
-| :------------- | :-------- | :----------- | :------------------------------------------------------- |
-| `videoID`      | `string`  | **required** | The YouTube video ID to embed.                           |
-| `ytImpression` | `boolean` | `true`       | Show "Watch on YouTube" overlay text.                    |
-| `preconnect`   | `boolean` | `false`      | Preconnect to YouTube domains for faster iframe loading. |
-| `nocookie`     | `boolean` | `false`      | Use `youtube-nocookie.com` to improve privacy.           |
+| Prop           | Type         | Default      | Description                                              |
+| :------------- | :----------- | :----------- | :------------------------------------------------------- |
+| `videoID`      | `string`     | **required** | The YouTube video ID to embed.                           |
+| `videoTitle`   | `string`     | null         | The YouTube video title.                                 |
+| `ytImpression` | `boolean`    | `true`       | Show "Watch on YouTube" overlay text.                    |
+| `imageLoading` | `lazy/eager` | `lazy`       | Whether to natively lazy/eager load the image.           |
+| `preconnect`   | `boolean`    | `false`      | Preconnect to YouTube domains for faster iframe loading. |
+| `nocookie`     | `boolean`    | `false`      | Use `youtube-nocookie.com` to improve privacy.           |
 
 ---
 
@@ -68,51 +70,6 @@ This package:
 - Loads a lightweight thumbnail initially
 - Defers loading the real player until **interaction**
 - Offers **better performance and UX**
-
----
-
-## 👨‍💻 Local Development
-
-This project uses **pnpm workspaces** for local testing instead of global linking.
-
-### 1. Project structure
-
-```plaintext
-/packages
-  /react-youtube-liteframe  ← library
-  /test-app                  ← your test app
-pnpm-workspace.yaml
-```
-
-`pnpm-workspace.yaml`:
-
-```yaml
-packages:
-  - "packages/*"
-```
-
-### 2. Setup
-
-```bash
-pnpm install
-```
-
-This installs dependencies across both the library and the test app and links them automatically.
-
-### 3. Development workflow
-
-- **Library**: inside `react-youtube-liteframe`
-  ```bash
-  pnpm dev
-  ```
-- **Test app**: inside `test-app`
-  ```bash
-  pnpm run dev
-  ```
-
-When you make changes inside your library, **rebuild it** (`pnpm run dev`), and your test app will pick them up automatically.
-
-No `pnpm link` or global linking needed!
 
 ---
 

@@ -4,7 +4,10 @@ import Youtube from "react-youtube-liteframe";
 function App() {
   return (
     <div>
-      <Youtube videoID="g1gix7znjS4" />
+      <Youtube
+        videoID="g1gix7znjS4"
+        videoTitle="TRUTH OR DRINK | Alan vs Chloe"
+      />
       <Youtube videoID="pVI_smLgTY0" />
       <Youtube videoID="-8PYD6naGus" />
       <Youtube videoID="3enHvs7VaN8" />

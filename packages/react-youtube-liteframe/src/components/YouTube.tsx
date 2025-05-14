@@ -98,7 +98,7 @@ function Youtube(props: YoutubeProps) {
     <div
       role="presentation"
       title={videoTitle ?? "Youtube video player"}
-      className="r-yt-lf"
+      className={"r-yt-lf" + `${showIFrame ? " r-yt-active" : ""}`}
       aria-labelledby="yt-title"
     >
       {showIFrame ? (

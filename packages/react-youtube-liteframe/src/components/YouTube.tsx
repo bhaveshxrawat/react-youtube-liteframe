@@ -101,7 +101,17 @@ function Youtube(props: YoutubeProps) {
       className="r-yt-lf"
       aria-labelledby="yt-title"
     >
-      {!showIFrame && (
+      {showIFrame ? (
+        <iframe
+          width="560"
+          height="315"
+          src={iframeSrc}
+          title={videoTitle}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      ) : (
         <div className="yt-mock">
           {videoTitle && (
             <h3 id="yt-title">
@@ -184,17 +194,6 @@ function Youtube(props: YoutubeProps) {
             </p>
           )}
         </div>
-      )}
-      {showIFrame && (
-        <iframe
-          width="560"
-          height="315"
-          src={iframeSrc}
-          title={videoTitle}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
       )}
     </div>
   );

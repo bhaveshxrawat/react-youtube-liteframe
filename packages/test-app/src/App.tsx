@@ -7,8 +7,14 @@ function App() {
       <Youtube
         videoID="g1gix7znjS4"
         videoTitle="TRUTH OR DRINK | Alan vs Chloe"
+        noCookie={true}
       />
-      <Youtube videoID="pVI_smLgTY0" />
+      <Youtube
+        videoID="FjwLfkUb45E"
+        short={true}
+        videoTitle="Roman Slavery Was Not Like America's — Kyle Harper"
+        noCookie={true}
+      />
       <Youtube videoID="-8PYD6naGus" />
       <Youtube videoID="3enHvs7VaN8" />
       <Youtube videoID="J87kCZptPeY" />

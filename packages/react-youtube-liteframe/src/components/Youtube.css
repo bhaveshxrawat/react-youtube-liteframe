@@ -10,6 +10,10 @@
     background-color: transparent;
     border: 0;
     padding: 0;
+
+    &:has(>svg:only-child) {
+      line-height: 0;
+    }
   }
 
   p {
@@ -29,11 +33,9 @@
 
   .yt-playbtn {
     width: 4.25rem;
-    height: 3rem;
 
     @container liteframe (width <=30rem) {
       width: 3rem;
-      height: 2.75rem;
     }
   }
 
@@ -128,4 +130,18 @@
       }
     }
   }
+
+  &.r-yt-short {
+    max-width: 22.5rem;
+    aspect-ratio: 9/16;
+
+    .yt-mock {
+      h3 {
+        font-size: 1rem;
+        grid-column-end: -1;
+        margin-inline: 1rem;
+      }
+    }
+  }
+
 }

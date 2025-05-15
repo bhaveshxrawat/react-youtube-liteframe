@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./Youtube.css";
 import { usePreconnect } from "../hooks/usePreconnect";
+import { YTShortsSVG, YTVideoSVG } from "./ui/YoutubeSVG";
 
 /**
  * Props for the Youtube component.
@@ -36,6 +37,13 @@ export interface YoutubeProps {
    *
    */
   videoTitle?: string;
+
+  /**
+   * Whether the video is a YouTube shorts.
+   *
+   * @default false
+   */
+  short?: boolean;
 
   /**
    * Whether to show a "Watch on YouTube" impression text.
@@ -82,6 +90,7 @@ function Youtube(props: YoutubeProps) {
   const {
     videoID,
     videoTitle,
+    short = false,
     ytImpression = true,
     imageLoading = "lazy",
     noCookie = false,
@@ -89,16 +98,27 @@ function Youtube(props: YoutubeProps) {
   } = props;
   const [showIFrame, setShowIFrame] = React.useState(false);
   usePreconnect(preconnect ? "https://i.ytimg.com" : undefined);
-  usePreconnect(preconnect ? "https://www.youtube.com" : undefined);
+  usePreconnect(
+    preconnect
+      ? `https://www.${noCookie ? "youtube-nocookie" : "youtube"}.com`
+      : undefined
+  );
   if (!videoID) return <p>No video id was provided</p>;
   const iframeSrc = `https://www.${
     noCookie ? "youtube-nocookie" : "youtube"
   }.com/embed/${videoID}?autoplay=1&playsinline=1`;
+  const resourceURL = short
+    ? `https://www.youtube.com/shorts/${videoID}`
+    : `https://www.youtube.com/watch?v=${videoID}`;
   return (
     <div
       role="presentation"
       title={videoTitle ?? "Youtube video player"}
-      className={"r-yt-lf" + `${showIFrame ? " r-yt-active" : ""}`}
+      className={
+        "r-yt-lf" +
+        `${short ? " r-yt-short" : ""}` +
+        `${showIFrame ? " r-yt-active" : ""}`
+      }
       aria-labelledby="yt-title"
     >
       {showIFrame ? (
@@ -115,11 +135,7 @@ function Youtube(props: YoutubeProps) {
         <div className="yt-mock">
           {videoTitle && (
             <h3 id="yt-title">
-              <a
-                href={`https://www.youtube.com/watch?v=${videoID}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={resourceURL} target="_blank" rel="noopener noreferrer">
                 {videoTitle}
               </a>
             </h3>
@@ -156,24 +172,20 @@ function Youtube(props: YoutubeProps) {
           <button
             type="button"
             aria-label={
-              videoTitle ? `Watch ${videoTitle}` : "Watch Youtube Video"
+              videoTitle
+                ? `Watch ${videoTitle}`
+                : `Watch Youtube ${short ? "Short" : "Video"}`
             }
             className="yt-playbtn"
             onClick={() => setShowIFrame(true)}
           >
-            <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
-              <path
-                d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
-                fill="#f03"
-              ></path>
-              <path d="M 45,24 27,14 27,34" fill="#fff"></path>
-            </svg>
+            {short ? <YTShortsSVG /> : <YTVideoSVG />}
           </button>
           {ytImpression && (
             <p className="yt-impression">
               Watch on{" "}
               <a
-                href={`https://www.youtube.com/watch?v=${videoID}`}
+                href={resourceURL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Youtube"

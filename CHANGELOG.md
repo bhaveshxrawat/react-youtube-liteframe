@@ -1,6 +1,7 @@
 ##1.2.1
 
-- Refactoring; switched from short-circuit eval to ternary operation eval.
+- Refactor: switched from short-circuit eval to ternary operation eval.
+- Fix: preconnecting polluted the `<head>`.
 - Made linear gradient exclusive to the YT embeds with title.
 - Optimised the layout for YouTube Shorts.
 

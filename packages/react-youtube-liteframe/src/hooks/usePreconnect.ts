@@ -3,17 +3,25 @@ import { useEffect } from "react";
 /**
  * Dynamically preconnects to a URL when the component mounts.
  *
- * @param url - The URL to preconnect to.
- * @param crossorigin - Whether to add `crossorigin="anonymous"`.
+ * @param href - The URL to preconnect to.
  */
-export const usePreconnect = (url?: string, crossorigin = false) => {
+export const usePreconnect = (href?: string) => {
   useEffect(() => {
-    if (!url) return;
-    document.head.insertAdjacentHTML(
-      "beforeend",
-      `<link rel="preconnect" href="${url}" ${
-        crossorigin ? 'crossorigin="anonymous"' : ""
-      } />`
+    if (!document || !href) return;
+
+    const existing = document.querySelector(
+      `link[rel="preconnect"][href="${href}"]`
     );
-  }, [url, crossorigin]);
+    if (existing) return;
+
+    const link = document.createElement("link");
+    link.rel = "preconnect";
+    link.href = href;
+    link.crossOrigin = "anonymous";
+    document.head.appendChild(link);
+
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [href]);
 };

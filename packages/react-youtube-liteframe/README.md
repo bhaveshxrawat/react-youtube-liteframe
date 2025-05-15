@@ -1,3 +1,5 @@
+![39_1x_shots_so](https://github.com/user-attachments/assets/190efe0b-c7c2-4425-a843-affca5344537)
+
 ## <!-- Start -->
 
 # react-youtube-liteframe
@@ -9,6 +11,7 @@
 ## ✨ Features
 
 - ⚡ Lazy-loads YouTube iframe **only on click** (better performance)
+- 📱 Supports YouTube Shorts
 - 🎯 Accessible by default (keyboard focus, alt text, play button)
 - 🖼️ `<picture>` element with WebP and JPG fallback
 - 🚀 Optional `preconnect` to YouTube domains

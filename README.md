@@ -1,4 +1,7 @@
 ![39_1x_shots_so](https://github.com/user-attachments/assets/757dbd83-79f9-4896-979e-26af8c4af7cf)
+
+## [View demo](https://bhaveshxrawat.github.io/react-youtube-liteframe-demo/)
+
 # react-youtube-liteframe Monorepo
 
 This repository contains the source code for the `react-youtube-liteframe` package and `test-app` to test the package in a local development setup.

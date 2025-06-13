@@ -1,3 +1,7 @@
+##1.2.2
+
+- Refactored usePreconnect hook, so it doesn't add multiple useEffects per component.
+
 ##1.2.1
 
 - Refactor: switched from short-circuit eval to ternary operation eval.

@@ -97,10 +97,12 @@ function Youtube(props: YoutubeProps) {
     preconnect = true,
   } = props;
   const [showIFrame, setShowIFrame] = React.useState(false);
-  usePreconnect(preconnect ? "https://i.ytimg.com" : undefined);
   usePreconnect(
     preconnect
-      ? `https://www.${noCookie ? "youtube-nocookie" : "youtube"}.com`
+      ? [
+          "https://i.ytimg.com",
+          `https://www.${noCookie ? "youtube-nocookie" : "youtube"}.com`,
+        ]
       : undefined
   );
   if (!videoID) return <p>No video id was provided</p>;

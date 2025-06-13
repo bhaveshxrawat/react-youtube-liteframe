@@ -3,25 +3,21 @@ import { useEffect } from "react";
 /**
  * Dynamically preconnects to a URL when the component mounts.
  *
- * @param href - The URL to preconnect to.
+ * @param hrefs - The array of URLs to preconnect to.
  */
-export const usePreconnect = (href?: string) => {
+export const usePreconnect = (hrefs?: string[]) => {
+  if (!document || !hrefs || hrefs.length === 0) return;
   useEffect(() => {
-    if (!document || !href) return;
-
-    const existing = document.querySelector(
-      `link[rel="preconnect"][href="${href}"]`
-    );
-    if (existing) return;
-
-    const link = document.createElement("link");
-    link.rel = "preconnect";
-    link.href = href;
-    link.crossOrigin = "anonymous";
-    document.head.appendChild(link);
-
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, [href]);
+    for (const link of hrefs) {
+      const existing = document.querySelector(
+        `link[rel="preconnect"][href="${link}"]`
+      );
+      if (existing) return;
+      const linkMarkup = document.createElement("link");
+      linkMarkup.rel = "preconnect";
+      linkMarkup.href = link;
+      linkMarkup.crossOrigin = "anonymous";
+      document.head.appendChild(linkMarkup);
+    }
+  }, [hrefs]);
 };

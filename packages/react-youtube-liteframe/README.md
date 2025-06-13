@@ -55,6 +55,7 @@ export default App;
 | :------------- | :----------- | :----------- | :------------------------------------------------------- |
 | `videoID`      | `string`     | **required** | The YouTube video ID to embed.                           |
 | `videoTitle`   | `string`     | null         | The YouTube video title.                                 |
+| `short`        | `boolean`    | false        | Whether the video is a YouTube shorts.                   |
 | `ytImpression` | `boolean`    | `true`       | Show "Watch on YouTube" overlay text.                    |
 | `imageLoading` | `lazy/eager` | `lazy`       | Whether to natively lazy/eager load the image.           |
 | `preconnect`   | `boolean`    | `false`      | Preconnect to YouTube domains for faster iframe loading. |

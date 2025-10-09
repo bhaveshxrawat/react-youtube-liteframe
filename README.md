@@ -1,6 +1,6 @@
 ![39_1x_shots_so](https://github.com/user-attachments/assets/757dbd83-79f9-4896-979e-26af8c4af7cf)
 
-## [View demo](https://bhaveshxrawat.github.io/react-youtube-liteframe-demo/)
+## [View demo](https://react-youtube-liteframe.vercel.app)
 
 # react-youtube-liteframe Monorepo
 

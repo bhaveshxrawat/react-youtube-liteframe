@@ -1,3 +1,3 @@
-import Youtube from "./components/Youtube";
+import Youtube from "./components/YouTube";
 
 export default Youtube;

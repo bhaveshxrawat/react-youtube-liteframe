@@ -1,3 +1,8 @@
+##1.2.3
+
+- Refactored Youtube component by declaring a global types file.
+- Added files to npm ignore
+
 ##1.2.2
 
 - Refactored usePreconnect hook, so it doesn't add multiple useEffects per component.

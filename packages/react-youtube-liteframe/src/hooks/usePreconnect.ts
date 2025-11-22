@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 /**
  * Dynamically preconnects to a URL when the component mounts.
@@ -6,11 +6,12 @@ import { useEffect } from "react";
  * @param hrefs - The array of URLs to preconnect to.
  */
 export const usePreconnect = (hrefs?: string[]) => {
-  if (!document || !hrefs || hrefs.length === 0) return;
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!hrefs || hrefs.length === 0) return;
     for (const link of hrefs) {
       const existing = document.querySelector(
-        `link[rel="preconnect"][href="${link}"]`
+        `link[rel="preconnect"][href="${link}"]`,
       );
       if (existing) return;
       const linkMarkup = document.createElement("link");

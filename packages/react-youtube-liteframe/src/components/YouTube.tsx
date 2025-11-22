@@ -2,6 +2,7 @@ import * as React from "react";
 import "./Youtube.css";
 import { usePreconnect } from "../hooks/usePreconnect";
 import { YTShortsSVG, YTVideoSVG } from "./ui/YoutubeSVG";
+import { YoutubeProps } from "../types/yt";
 
 function Youtube(props: YoutubeProps) {
   const {
@@ -20,7 +21,7 @@ function Youtube(props: YoutubeProps) {
           "https://i.ytimg.com",
           `https://www.${noCookie ? "youtube-nocookie" : "youtube"}.com`,
         ]
-      : undefined
+      : undefined,
   );
   if (!videoID) return <p>No video id was provided</p>;
   const iframeSrc = `https://www.${

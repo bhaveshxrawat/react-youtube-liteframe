@@ -1,0 +1,41 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/react-youtube-liteframe/**'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: "pnpm"
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm build
+        working-directory: packages/react-youtube-liteframe
+
+      - name: Publish to npm
+        run: npm publish --access public
+        working-directory: packages/react-youtube-liteframe
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

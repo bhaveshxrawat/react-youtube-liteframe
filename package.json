@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "publish-packages": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7"
+  }
+}

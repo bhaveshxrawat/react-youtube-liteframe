@@ -16,7 +16,7 @@
  * <Youtube videoID="dQw4w9WgXcQ" ytImpression={false} />
  * ```
  */
-interface YoutubeProps {
+export interface YoutubeProps {
   /**
    * The YouTube video ID to embed.
    *

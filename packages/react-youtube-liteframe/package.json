@@ -1,6 +1,6 @@
 {
   "name": "react-youtube-liteframe",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A lightweight, accessible, lazy-loaded YouTube embed for React.",
   "main": "dist/index.js",
   "type": "module",

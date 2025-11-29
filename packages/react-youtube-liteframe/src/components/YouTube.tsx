@@ -1,8 +1,8 @@
-import * as React from "react";
 import "./Youtube.css";
 import { usePreconnect } from "../hooks/usePreconnect";
 import { YTShortsSVG, YTVideoSVG } from "./ui/YoutubeSVG";
 import { YoutubeProps } from "../types/yt";
+import { useState } from "react";
 
 function Youtube(props: YoutubeProps) {
   const {
@@ -14,7 +14,7 @@ function Youtube(props: YoutubeProps) {
     noCookie = false,
     preconnect = true,
   } = props;
-  const [showIFrame, setShowIFrame] = React.useState(false);
+  const [showIFrame, setShowIFrame] = useState(false);
   usePreconnect(
     preconnect
       ? [

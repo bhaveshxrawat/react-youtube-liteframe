@@ -1,13 +1,15 @@
 import styles from "./Youtube.module.css";
-import { usePreconnect } from "../hooks/usePreconnect";
+import { usePreconnect } from "@/hooks/usePreconnect";
 import { YTShortsSVG, YTVideoSVG } from "./ui/YoutubeSVG";
 import { YoutubeProps } from "../types/yt";
 import { useState } from "react";
+import clsx from "clsx";
 
 function Youtube(props: YoutubeProps) {
   const {
     videoID,
     videoTitle,
+    className,
     short = false,
     ytImpression = true,
     imageLoading = "lazy",
@@ -34,7 +36,12 @@ function Youtube(props: YoutubeProps) {
     <div
       role="presentation"
       title={videoTitle ?? "Youtube video player"}
-      className={`${styles["ryt-root"]} ${styles["r-yt-lf"]} ${short ? styles["r-yt-short"] : ""}`}
+      className={clsx(
+        styles["ryt-root"],
+        styles["r-yt-lf"],
+        short && styles["r-yt-short"],
+        className,
+      )}
       aria-labelledby="yt-title"
     >
       {showIFrame ? (

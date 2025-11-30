@@ -34,6 +34,11 @@ export interface YoutubeProps {
   videoTitle?: string;
 
   /**
+   * Provide custom styles to the root container
+   */
+  className?: string;
+
+  /**
    * Whether the video is a YouTube shorts.
    *
    * @default false

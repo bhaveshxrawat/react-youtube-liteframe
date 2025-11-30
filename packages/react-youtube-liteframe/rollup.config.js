@@ -9,8 +9,7 @@ export default defineConfig({
     format: "es",
     name: "react-youtube-liteframe",
   },
-  external: ["react", "react-dom"],
-  external: ["react", "react-dom", "react/jsx-runtime"],
+  external: ["react", "react-dom", "react/jsx-runtime", "clsx"],
   plugins: [
     typescript({ tsconfig: "tsconfig.json" }),
     postcss({ minimize: true, extract: true }),

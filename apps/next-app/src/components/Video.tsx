@@ -7,6 +7,7 @@ export default function Video() {
   return (
     <Youtube
       videoID="g1gix7znjS4"
+      className="overflow-clip rounded-lg"
       videoTitle="TRUTH OR DRINK | Alan vs Chloe"
     />
   );

@@ -1,3 +1,23 @@
+@layer resets {
+    .ryt-root,
+    .ryt-root * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+    }
+}
+
+@layer base {
+    .ryt-root button {
+        cursor: pointer;
+        background-color: transparent;
+    }
+    .ryt-root a {
+        color: inherit;
+    }
+}
+
 .r-yt-lf {
     color: white;
     max-width: 45rem;
@@ -6,23 +26,12 @@
     container-name: liteframe;
     container-type: inline-size;
     font-family: Arial, Helvetica, sans-serif;
+    isolation: isolate;
 
     button {
-        background-color: transparent;
-        border: 0;
-        padding: 0;
-
         &:has(> svg:only-child) {
             line-height: 0;
         }
-    }
-
-    p {
-        margin: 0;
-    }
-
-    a {
-        color: inherit;
     }
 
     iframe {
@@ -41,7 +50,6 @@
     }
 
     .yt-mock {
-        isolation: isolate;
         display: grid;
         position: relative;
         height: 100%;
@@ -67,7 +75,7 @@
             z-index: 1;
             align-self: start;
             font-weight: 600;
-            margin-block: 1.125rem;
+            margin-block: 1.3125rem;
             margin-inline-start: 1rem;
 
             a {
@@ -78,7 +86,6 @@
         picture {
             grid-area: 1/1/-1/-1;
             z-index: -1;
-
             img {
                 display: block;
                 width: 100%;

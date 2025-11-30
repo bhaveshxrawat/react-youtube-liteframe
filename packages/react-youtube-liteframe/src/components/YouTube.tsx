@@ -1,4 +1,4 @@
-import "./Youtube.css";
+import styles from "./Youtube.module.css";
 import { usePreconnect } from "../hooks/usePreconnect";
 import { YTShortsSVG, YTVideoSVG } from "./ui/YoutubeSVG";
 import { YoutubeProps } from "../types/yt";
@@ -34,11 +34,7 @@ function Youtube(props: YoutubeProps) {
     <div
       role="presentation"
       title={videoTitle ?? "Youtube video player"}
-      className={
-        "r-yt-lf" +
-        `${short ? " r-yt-short" : ""}` +
-        `${showIFrame ? " r-yt-active" : ""}`
-      }
+      className={`${styles["ryt-root"]} ${styles["r-yt-lf"]} ${short ? styles["r-yt-short"] : ""}`}
       aria-labelledby="yt-title"
     >
       {showIFrame ? (
@@ -52,7 +48,7 @@ function Youtube(props: YoutubeProps) {
           allowFullScreen
         ></iframe>
       ) : (
-        <div className="yt-mock">
+        <div className={`${styles["yt-mock"]}`}>
           {videoTitle && (
             <h3 id="yt-title">
               <a href={resourceURL} target="_blank" rel="noopener noreferrer">
@@ -64,21 +60,21 @@ function Youtube(props: YoutubeProps) {
             <source
               type="image/webp"
               srcSet={`
-      https://i.ytimg.com/vi_webp/${videoID}/mqdefault.webp 320w,
-      https://i.ytimg.com/vi_webp/${videoID}/hqdefault.webp 480w,
-      https://i.ytimg.com/vi_webp/${videoID}/sddefault.webp 640w,
-      https://i.ytimg.com/vi_webp/${videoID}/maxresdefault.webp 1280w
-    `}
+                https://i.ytimg.com/vi_webp/${videoID}/mqdefault.webp 320w,
+                https://i.ytimg.com/vi_webp/${videoID}/hqdefault.webp 480w,
+                https://i.ytimg.com/vi_webp/${videoID}/sddefault.webp 640w,
+                https://i.ytimg.com/vi_webp/${videoID}/maxresdefault.webp 1280w
+              `}
               sizes="100vw"
             />
             <source
               type="image/jpeg"
               srcSet={`
-      https://i.ytimg.com/vi/${videoID}/mqdefault.jpg 320w,
-      https://i.ytimg.com/vi/${videoID}/hqdefault.jpg 480w,
-      https://i.ytimg.com/vi/${videoID}/sddefault.jpg 640w,
-      https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg 1280w
-    `}
+                https://i.ytimg.com/vi/${videoID}/mqdefault.jpg 320w,
+                https://i.ytimg.com/vi/${videoID}/hqdefault.jpg 480w,
+                https://i.ytimg.com/vi/${videoID}/sddefault.jpg 640w,
+                https://i.ytimg.com/vi/${videoID}/maxresdefault.jpg 1280w
+              `}
               sizes="100vw"
             />
             <img
@@ -96,13 +92,13 @@ function Youtube(props: YoutubeProps) {
                 ? `Watch ${videoTitle}`
                 : `Watch Youtube ${short ? "Short" : "Video"}`
             }
-            className="yt-playbtn"
+            className={`${styles["yt-playbtn"]}`}
             onClick={() => setShowIFrame(true)}
           >
             {short ? <YTShortsSVG /> : <YTVideoSVG />}
           </button>
           {ytImpression && (
-            <p className="yt-impression">
+            <p className={`${styles["yt-impression"]}`}>
               Watch on{" "}
               <a
                 href={resourceURL}

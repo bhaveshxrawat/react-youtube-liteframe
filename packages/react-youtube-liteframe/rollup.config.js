@@ -13,6 +13,6 @@ export default defineConfig({
   external: ["react", "react-dom", "react/jsx-runtime"],
   plugins: [
     typescript({ tsconfig: "tsconfig.json" }),
-    postcss({ minimize: true, inject: true }),
+    postcss({ minimize: true, extract: true }),
   ],
 });

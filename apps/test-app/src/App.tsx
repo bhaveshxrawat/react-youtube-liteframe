@@ -1,5 +1,6 @@
 import "./App.css";
 import Youtube from "react-youtube-liteframe";
+import "react-youtube-liteframe/dist/index.css";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import Youtube from "react-youtube-liteframe";
+import "react-youtube-liteframe/dist/index.css";
 
 export default function Video() {
   return (

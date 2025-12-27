@@ -6,6 +6,12 @@ on:
       - main
     paths:
       - "packages/react-youtube-liteframe/**"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for manual publish"
+        required: false
+        default: "Manual trigger"
 
 permissions:
   id-token: write

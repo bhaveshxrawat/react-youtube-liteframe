@@ -1,5 +1,13 @@
 # test-app
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [4943534]
+- Updated dependencies [4943534]
+  - react-youtube-liteframe@2.0.0
+
 ## 0.0.2
 
 ### Patch Changes

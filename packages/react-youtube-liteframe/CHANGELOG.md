@@ -1,5 +1,15 @@
 # react-youtube-liteframe
 
+## 2.0.0
+
+### Major Changes
+
+- 4943534: CSS modules with now css file getting imported.
+
+### Patch Changes
+
+- 4943534: CSS Modules
+
 ## 1.2.5
 
 ### Patch Changes

@@ -39,6 +39,7 @@ yarn add react-youtube-liteframe
 
 ```tsx
 import Youtube from "react-youtube-liteframe";
+import "react-youtube-liteframe/dist/index.css";
 
 function App() {
   return <Youtube videoID="dQw4w9WgXcQ" />;

@@ -15,6 +15,7 @@ on:
 
 permissions:
   id-token: write
+  contents: read
 
 jobs:
   publish:
@@ -46,5 +47,3 @@ jobs:
       - name: Publish to npm
         run: npm publish --access public
         working-directory: packages/react-youtube-liteframe
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -45,5 +45,5 @@ jobs:
         working-directory: packages/react-youtube-liteframe
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --access public --provenance
         working-directory: packages/react-youtube-liteframe

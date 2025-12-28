@@ -47,3 +47,5 @@ jobs:
       - name: Publish to npm
         run: npm publish --access public --provenance
         working-directory: packages/react-youtube-liteframe
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
